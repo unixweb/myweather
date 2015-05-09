@@ -16,7 +16,7 @@ databaseHost="XXXXX.domain.de"
 
 idef saveToDatabase(temp1, temp2, temp3, temp4, humidity, pressure, sea_pressure, altitude):
 
-    con=mdb.connect("blog.joachimhummel.de", databaseUsername, databasePassword, databaseName)
+    con=mdb.connect(databaseHost, databaseUsername, databasePassword, databaseName)
     currentDate=datetime.datetime.now().date()
     print currentDate
     now=datetime.datetime.now()
@@ -26,7 +26,7 @@ idef saveToDatabase(temp1, temp2, temp3, temp4, humidity, pressure, sea_pressure
 
     with con:
             cur=con.cursor()
-            query = ("INSERT INTO `temperatures2`(`temperature-1`, `temperature-2`, `temperature-3`, `temperature-4`, `humidity`, `dateMeasured`, `hourMeasured`, `pressure`, `pressure-sea`, `altitude`)"
+            query = ("INSERT INTO `temperatures`(`temperature-1`, `temperature-2`, `temperature-3`, `temperature-4`, `humidity`, `dateMeasured`, `hourMeasured`, `pressure`, `pressure-sea`, `altitude`)"
                         "VALUES (%s,%s,%s,%s,%s,'%s',%s,%s,%s,%s)"% (temp1, temp2, temp3, temp4, humidity, currentDate, minutes, pressure, sea_pressure, altitude))
             cur.execute(query)
 
@@ -40,7 +40,7 @@ def readInfo():
     while(temperatureSaved=="false"):
     # Run the DHT program to get the humidity and temperature readings!
 
-        source = "/home/pi/dev/krishwebs/myweather/weather.py"
+        source = "/home/pi/myweather/weather.py"
 
         # search for tempretures , continue to search untill it do not found
         temp1 = search_attr('Temp1', source)
@@ -74,7 +74,7 @@ def search_attr(val, source):
 try:
     queryFile=file("createTable.sql","r")
 
-    con=mdb.connect("blog.joachimhummel.de", databaseUsername,databasePassword,databaseName)
+    con=mdb.connect(databaseHost databaseUsername,databasePassword,databaseName)
     currentDate=datetime.datetime.now().date()
 
     with con:

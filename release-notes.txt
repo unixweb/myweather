@@ -1,0 +1,26 @@
++++++++++++++++++++++++++
+Version 1.1 May 21 2015
+
+Update for scheduler.py, createTable.sql , weather.py
+
+Changes for scheduler.py:
+
+Update new database design for input temp1,temp2,temp3,temp4,humidity,pressure,pressure_sea,altitude
+
+Changes for createTabe.sql:
+
+New database design for input temperature_11,temperature_12,temperature_13,temperature_14,humidity,pressure,pressure_sea,altitude
+
+Changes for weather.py:
+Remove print for new import with scheduler.py
+
+++++++++++++++++++++++++
+Version 1.0  May 5 2015
+
+Upload basic files
+
+scheduler.py
+createTable.sql
+weather.py
+status.py
+

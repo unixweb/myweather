@@ -1,4 +1,10 @@
-+++++++++++++++++++++++++
++++++++++++++++++++++++
+Version 1.2 June 5 2015
+
+Support now 1 * BMP180 Sensors
+Support now 3 * DS18B20 Sensors
+
++++++++++++++++++++++++
 Version 1.1 May 21 2015
 
 Update for scheduler.py, createTable.sql , weather.py

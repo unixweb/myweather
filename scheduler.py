@@ -9,10 +9,10 @@ import MySQLdb as mdb
 import datetime
 from weather import *
 
-databaseUsername="XXXX"
-databasePassword="XXXX"
-databaseName="XXXX" #do not change unless you named the Wordpress database with some other name
-databaseHost="XXXX"
+databaseUsername="XXXXX"
+databasePassword="XXXXX"
+databaseName="XXXXX" #do not change unless you named the Wordpress database with some other name
+databaseHost="www.xxx.de"
 
 
 #check if table is created or if we need to create one
@@ -49,7 +49,7 @@ def saveToDatabase(temp1, temp2, temp3, temp4, humidity, pressure, sea_pressure,
     now=datetime.datetime.now()
     midnight=datetime.datetime.combine(now.date(),datetime.time())
     minutes=((now-midnight).seconds)/60 #minutes after midnight, use datead$
-
+    print "Minutes",minutes
 
     with con:
             cur=con.cursor()
@@ -73,6 +73,15 @@ def readInfo():
          altitude =  Altitude
          pressure =  Pressure
          sea_pressure  =  Sea_pressure
+         print "Temp1 : ",temp1
+         print "Temp2 : ",temp2
+         print "Temp3 : ",temp3
+         print "Temp4 : ",temp4
+         print "Humidity : ",humidity
+         print "Altitude : ",altitude
+         print "Pressure : ",pressure
+         print "Sea Pressure : ",sea_pressure
+	 #return "false"
          #temperatureSaved="true"
          return saveToDatabase(temp1, temp2, temp3, temp4, humidity, pressure, sea_pressure, altitude)
 

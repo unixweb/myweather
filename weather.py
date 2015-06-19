@@ -28,14 +28,6 @@ sensor4 = ""
 # consumption are primarily the differences).  The default mode is STANDARD.
 #sensor = BMP085.BMP085(mode=BMP085.BMP085_ULTRAHIGHRES)
 
-#Temp1 = format(sensor.read_temperature())
-#Temp2 = format(sensor.read_temperature())
-#Temp3 = format(sensor.read_temperature())
-#Temp4 = format(sensor.read_temperature())
-#Pressure = format(sensor.read_pressure()/100)
-#Sea_pressure = format(sensor.read_sealevel_pressure()/100)
-#Altitude =  format(sensor.read_altitude())
-#Humidity= 57
 
 # getTemp1() method
 # Sensor1 = BMP085
@@ -60,6 +52,7 @@ def getTemp2():
                 tempdata=thetext.split("\n")[1].split(" ")[9]
                 temperature2=float(tempdata[2:])
                 temperature2=temperature2/1000
+		temperature2=round(temperature2, 1)
             else:
                 temperature2=0
             if(temperature2==0):
@@ -80,6 +73,7 @@ def getTemp3():
                 tempdata=thetext.split("\n")[1].split(" ")[9]
                 temperature3=float(tempdata[2:])
                 temperature3=temperature3/1000
+		temperature3=round(temperature3, 1)
             else:
                 temperature3=0
             if(temperature3==0):
@@ -100,6 +94,7 @@ def getTemp4():
                 tempdata=thetext.split("\n")[1].split(" ")[9]
                 temperature4=float(tempdata[2:])
                 temperature4=temperature4/1000
+		temperature4=round(temperature4, 1)
             else:
                 temperature4=0
             if(temperature4==0):
@@ -113,6 +108,7 @@ def getTemp4():
 
 def getPressure():
     pressure=format(sensor1.read_pressure()/100)
+    pressure = round((sensor1.read_pressure()/100))
     if(pressure==0):
         return 0
     else:
@@ -124,6 +120,7 @@ def getPressure():
 
 def getSeaPressure():
     sea_pressure = format(sensor1.read_sealevel_pressure()/100)
+    sea_pressure = round((sensor1.read_sealevel_pressure()/100))
     if(sea_pressure==0):
         return 0
     else:
@@ -135,6 +132,7 @@ def getSeaPressure():
 
 def getAltitude():
     altitude =  format(sensor1.read_altitude())
+    altitude =  round((sensor1.read_altitude()))
     if(altitude==0):
         return 0
     else:

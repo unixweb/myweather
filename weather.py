@@ -19,6 +19,12 @@ sensor2 = "/sys/bus/w1/devices/w1_bus_master1/28-041470306aff/w1_slave"
 sensor3 = "/sys/bus/w1/devices/w1_bus_master1/28-0414709c63ff/w1_slave"
 sensor4 = ""
 
+# Please set your locale altitude
+# http://www.latlong.net/  Helps to find your Langitude and Latitude
+# http://www.mapcoordinates.net/  Helps to Find the Data in Meter
+local_altitude = 570
+
+
 # Optionally you can override the bus number:
 #sensor = BMP085.BMP085(busnum=2)
 
@@ -28,6 +34,10 @@ sensor4 = ""
 # consumption are primarily the differences).  The default mode is STANDARD.
 #sensor = BMP085.BMP085(mode=BMP085.BMP085_ULTRAHIGHRES)
 
+# getSeaLelvelPres
+# Sensor = BMP180
+# Output = SeaPresFloat
+SeaPresFlot = sensor1.read_sealevel_pressure(local_altitude)
 
 # getTemp1() method
 # Sensor1 = BMP085
@@ -116,11 +126,11 @@ def getPressure():
 
 # getSeaPressure() method
 # Sensor1 = BMP085
-# Output = Sea_Pressure
-
 def getSeaPressure():
-    sea_pressure = format(sensor1.read_sealevel_pressure()/100)
-    sea_pressure = round((sensor1.read_sealevel_pressure()/100))
+    #sea_pressure = format(sensor1.read_sealevel_pressure()/100)
+    #sea_pressure = round((sensor1.read_sealevel_pressure()/100))
+    pressure = round((sensor1.read_pressure()/100))
+    sea_pressure = round(pressure / pow(1.0 - locale_altitude/44330.0, 5.255))
     if(sea_pressure==0):
         return 0
     else:
@@ -131,8 +141,8 @@ def getSeaPressure():
 # Output = Altitude
 
 def getAltitude():
-    altitude =  format(sensor1.read_altitude())
-    altitude =  round((sensor1.read_altitude()))
+    #altitude =  format(sensor1.read_altitude())
+    altitude =  round((sensor1.read_altitude(SeaPresFlot)))
     if(altitude==0):
         return 0
     else:
@@ -151,26 +161,26 @@ def getHumidity():
         return humidity
 
 Temp1=getTemp1()
-#print Temp1
+print Temp1
 
 Temp2=getTemp2()
-#print Temp2
+print Temp2
 
 Temp3=getTemp3()
-#print Temp3
+print Temp3
 
 Temp4=getTemp4()
-#print Temp4
+print Temp4
 
 Pressure=getPressure()
-#print Pressure
+print Pressure
 
 Sea_pressure=getSeaPressure()
-#print Sea_pressure
+print Sea_pressure
 
 Altitude =getAltitude()
-#print Altitude
+print Altitude
 
 Humidity=getHumidity()
-#print Humidity
+print Humidity
 

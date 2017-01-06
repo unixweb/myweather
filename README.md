@@ -15,3 +15,17 @@ sudo python setup.py install<br/>
 <br/>
 sudo apt-get install python-mysqldb<br/>
 <br/>
+<br/>
+Insert the required database parameter in "scheduler.py" for WordPress Plugin <br/>
+databaseUsername="XXXXX"<br/>
+databasePassword="XXXXX"<br/>
+databaseName="XXXXX" #do not change unless you named the Wordpress database with some other name<br/>
+databaseHost="www.xxx.de"<br/>
+Install the WordPress Plugin <br/>
+<br/>
+Start "./scheduler.py" manually and check if there any errors.<br/>
+<br/>
+vi /etc/cron.d/weather <br/>
+*/15 * * * *   pi    /home/pi/myweather/scheduler.py > /dev/null<br/>
+<br/>
+Demo: http://blog.joachimhummel.de/category/wetter<br/>

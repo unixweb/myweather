@@ -22,7 +22,7 @@ sensor4 = ""
 # Please set your locale altitude
 # http://www.latlong.net/  Helps to find your Langitude and Latitude
 # http://www.mapcoordinates.net/  Helps to Find the Data in Meter
-local_altitude = 570
+locale_altitude = 570
 
 
 # Optionally you can override the bus number:
@@ -37,7 +37,7 @@ local_altitude = 570
 # getSeaLelvelPres
 # Sensor = BMP180
 # Output = SeaPresFloat
-SeaPresFlot = sensor1.read_sealevel_pressure(local_altitude)
+SeaPresFlot = sensor1.read_sealevel_pressure(locale_altitude)
 
 # getTemp1() method
 # Sensor1 = BMP085

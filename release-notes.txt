@@ -1,4 +1,9 @@
 +++++++++++++++++++++++
+Version 1.3 January 2017
+
+Added Locale Altitude for display correct Sea-Pressure and Barometric Altitude
+
++++++++++++++++++++++++
 Version 1.2 June 5 2015
 
 Support now 1 * BMP180 Sensors

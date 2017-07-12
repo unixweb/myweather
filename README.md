@@ -11,7 +11,7 @@ Installation for Adafruit Python-Modules needed:<br/>
 <br/>
 sudo apt-get update<br/>
 sudo apt-get install git build-essential python-dev python-smbus<br/>
-git clone https://github.com/adafruit/Adafruit_Python_BM.git<br/>
+git clone https://github.com/adafruit/Adafruit_Python_BMP.git<br/>
 cd Adafruit_Python_BMP<br/>
 sudo python setup.py install<br/>
 <br/>
